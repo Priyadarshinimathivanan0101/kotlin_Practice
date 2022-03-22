@@ -1,22 +1,19 @@
-/*sealed class SealedClass {
-    data class Manager(val name: String, val age: Int, val team: List<String>): SealedClass()
-    class SeniorDev(val name: String, val age: Int, val projects: Int): SealedClass()
-    object JuniorDev: SealedClass()
+sealed class Shape {
+    data class Circle(var radius: Double) : Shape()
+    data class Square(var length: Double) : Shape()
+    data class Rectangle(var length: Double, var breadth: Double) : Shape()
 }
-fun main() {
 
-    val sealc: SealedClass =//SeniorDev("Name", 20, 10)
-    val message = when(sealc)
+fun takeArear(s:Shape) {
+    return when(s)
     {
-        is Manager -> {
-            "Welcome ${sealc.name}! You have ${employee.team.size} employees in your team!"
-        }
-        is SeniorDev -> {
-            "Welcome ${sealc.name}! You have already ${employee.projects} projects under your belt!"
-        }
-        JuniorDev -> {
-            "Welcome aboard! We wish you an awesome Experience!"
-        }
-
+        is Shape.Circle -> println("Math.PI* (this.radius)*(this.radius)")
+        is Shape.Square -> println("(this.length)*(this.length)")
+        is Shape.Rectangle -> println("this.breadth * this.length")
     }
-}*/
+}
+fun main()
+{
+    val r = Shape.Circle(12.9)
+    takeArear(r)
+}
